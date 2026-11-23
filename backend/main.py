@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from datetime import datetime
-
+import os
 
 
 app = FastAPI(title="Notes Board API")
@@ -16,15 +16,19 @@ async def http_exception_handler(request: Request, exc: HTTPException):
         content={"error": exc.detail}
     )
 
-# Enable cors for react frontend
+# Enable CORS for local and deployed frontend
+frontend_url = os.getenv(
+    "FRONTEND_URL",
+    "http://localhost:5173"
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[frontend_url],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Temporary in-memory storage
 notes = []
 next_id = 1
