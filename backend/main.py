@@ -83,15 +83,14 @@ def create_note(note: NoteCreate):
     return new_note
 
 # delete a note
-@app.delete("/api/notes/{note_id}",status_code=204)
+@app.delete("/api/notes/{note_id}", status_code=204)
 def delete_note(note_id: int):
-
     for note in notes:
         if note["id"] == note_id:
             notes.remove(note)
             return Response(status_code=204)
 
-        raise HTTPException(
-            status_code=404,
-            detail="Note not found"
-        )  
+    raise HTTPException(
+        status_code=404,
+        detail="Note not found"
+    )
