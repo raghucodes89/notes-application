@@ -1,0 +1,148 @@
+
+.app {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 30px;
+}
+
+.app h1 {
+    color: var(--forest);
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.app h2 {
+    color: var(--forest);
+    margin: 28px 0 18px;
+}
+
+/* Form */
+form {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 20px;
+    border: 1px solid var(--pale-sage);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 8px 25px rgba(52, 74, 64, 0.06);
+}
+
+form h2 {
+    margin: 0 0 8px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--pale-sage);
+    border-radius: 12px;
+    outline: none;
+    background: #FCFCF9;
+    color: var(--forest);
+    font-size: 15px;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--mint);
+    box-shadow: 0 0 0 3px rgba(131, 220, 197, 0.2);
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* Buttons */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--forest);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+form button:hover {
+    background: #4F705D;
+    transform: translateY(-2px);
+}
+
+/* Notes grid */
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+/* Note cards */
+.note-card {
+    background: var(--white);
+    padding: 24px;
+    border-radius: 18px;
+    border: 1px solid var(--pale-sage);
+    border-top: 5px solid var(--mint);
+    box-shadow: 0 6px 20px rgba(52, 74, 64, 0.06);
+    transition: 0.25s;
+}
+
+.note-card:hover {
+    transform: translateY(-5px);
+    border-top-color: var(--coral);
+    box-shadow: 0 12px 28px rgba(52, 74, 64, 0.12);
+}
+
+.note-card h3 {
+    color: var(--forest);
+    margin-bottom: 12px;
+}
+
+.note-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.note-card small {
+    color: var(--sage);
+}
+
+/* Delete */
+.note-card button {
+    background: var(--coral);
+    color: var(--forest);
+    margin-top: 12px;
+}
+
+.note-card button:hover {
+    background: #F26759;
+}
+
+/* Errors */
+.error-message {
+    background: #FFF0ED;
+    color: var(--danger);
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .app {
+        margin: 15px auto;
+        padding: 16px;
+    }
+
+    .app h1 {
+        font-size: 28px;
+    }
+
+    form {
+        padding: 20px;
+    }
+}
